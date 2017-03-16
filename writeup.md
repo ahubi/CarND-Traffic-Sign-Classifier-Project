@@ -122,7 +122,7 @@ My final model consisted of the following layers:
 |RELU		            |												                          |
 |Fully connected		|	Input = 120, Output = 84											  |
 |RELU		            |											                            |
-|Fully connected		|	Input = 84, Output = 10											  |
+|Fully connected		|	Input = 84, Output = 43											  |
 
 
 

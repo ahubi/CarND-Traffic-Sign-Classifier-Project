@@ -81,9 +81,9 @@ Here is an exploratory visualization of the data set. It is a bar chart showing 
 
 The code for this step is contained in the fourth code cell of the IPython notebook.
 
-As a first step, I decided to convert the images to grayscale because ...
+As a first step, I decided to convert the images to grayscale because according to this [article](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0029740) gray-scaling "simplifies the algorithm and reduces computational requirements" Additionally color images introduces more information to the pipeline which would require more training information to achieve good training result. There are many ways to convert the image from RGB to gray-scale, according to the the article at least thirteen. I used the simple average method (R+G+B)/3. Additionally gray-scaling was explained by the trainer in the video session as a method to use.
 
-Here is an example of a traffic sign image before and after grayscaling.
+Here is an example of a traffic sign image before and after gray-scaling.
 
 Original images:
 
@@ -93,42 +93,36 @@ And here are the preprocessed images:
 
 ![alt text][image21] ![alt text][image22] ![alt text][image2]
 
-As a last step, I normalized the image data because ...
+As a last step, I normalized the image data because this was the advice from the trainer in the videos on udacity in which he explained the numerical stability. Running algorithms with zero centered numbers makes the calculations less complex and it's easier for the optimizer. As suggested by the trainer I used (Pixelvalue - 128) / 128 as a normalization method. According to this [article](http://lamda.nju.edu.cn/weixs/project/CNNTricks/CNNTricks.html) augmentation is another method to increase performance of the nework. In my solution I didn't use any augmentation methods.
 
 ####2. Describe how, and identify where in your code, you set up training, validation and testing data. How much data was in each set? Explain what techniques were used to split the data into these sets. (OPTIONAL: As described in the "Stand Out Suggestions" part of the rubric, if you generated additional data for training, describe why you decided to generate additional data, how you generated the data, identify where in your code, and provide example images of the additional data)
 
-The code for splitting the data into training and validation sets is contained in the fifth code cell of the IPython notebook.  
+There is no code for splitting in training, validation and testing data. The data is already separated at loading in the first IPython code cell.
 
-To cross validate my model, I randomly split the training data into a training set and validation set. I did this by ...
-
-My final training set had X number of images. My validation set and test set had Y and Z number of images.
-
-The sixth code cell of the IPython notebook contains the code for augmenting the data set. I decided to generate additional data because ... To add more data to the the data set, I used the following techniques because ...
-
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
-
-The difference between the original data set and the augmented data set is the following ...
+Please see statistics at the beginning of the writeup for numbers about training, validation and testing set.
 
 
 ####3. Describe, and identify where in your code, what your final model architecture looks like including model type, layers, layer sizes, connectivity, etc.) Consider including a diagram and/or table describing the final model.
 
-The code for my final model is located in the seventh cell of the ipython notebook.
+The code for my final model is located in the fifth cell of the Ipython notebook.
 
 My final model consisted of the following layers:
 
-| Layer         		|     Description	        					|
+| Layer         		|     Description	        					                |
 |:---------------------:|:---------------------------------------------:|
-| Input         		| 32x32x3 RGB image   							|
-| Convolution 3x3     	| 1x1 stride, same padding, outputs 32x32x64 	|
-| RELU					|												|
-| Max pooling	      	| 2x2 stride,  outputs 16x16x64 				|
-| Convolution 3x3	    | etc.      									|
-| Fully connected		| etc.        									|
-| Softmax				| etc.        									|
-|						|												|
-|						|												|
+| Input         		| 32x32x1 gray-scaled normalized image   						|
+| Convolution 5x5   | 1x1 stride, valid padding, outputs 28x28x6 	      |
+| RELU					    |												                            |
+| Max pooling	      | 2x2 stride, outputs 14x14x6 				              |
+| Convolution 5x5	  | 1x1 stride, valid padding, outputs 10x10x16      									                                        |
+| RELU		          |    									                              |
+| Max pooling				| 2x2 stride, Outputs 5x5x16        									                                        |
+|Flatten						| Input 5x5x16 output 400				                    |
+|Fully connected		|	Input = 400, Output = 120											  |
+|RELU		            |												                          |
+|Fully connected		|	Input = 120, Output = 84											  |
+|RELU		            |											                            |
+|Fully connected		|	Input = 84, Output = 10											  |
 
 
 

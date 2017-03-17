@@ -128,30 +128,24 @@ My final model consisted of the following layers:
 
 ####4. Describe how, and identify where in your code, you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
 
-The code for training the model is located in the eigth cell of the ipython notebook.
+The code for training the model is located in the tenth cell of the ipython notebook.
 
-To train the model, I used an ....
+To train the model, I used 50 Epochs, Batch size of 128, learning rate of 0.001, mean of 0 and standard deviation of 0.1. AdamOptimizer was used.
 
 ####5. Describe the approach taken for finding a solution. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
 
-The code for calculating the accuracy of the model is located in the ninth cell of the Ipython notebook.
+The code for calculating the test accuracy of the model is located in the eleventh cell of the Ipython notebook.
 
 My final model results were:
-* training set accuracy of ?
-* validation set accuracy of ?
-* test set accuracy of ?
-
-If an iterative approach was chosen:
-* What was the first architecture that was tried and why was it chosen?
-* What were some problems with the initial architecture?
-* How was the architecture adjusted and why was it adjusted? Typical adjustments could include choosing a different model architecture, adding or taking away layers (pooling, dropout, convolution, etc), using an activation function or changing the activation function. One common justification for adjusting an architecture would be due to over fitting or under fitting. A high accuracy on the training set but low accuracy on the validation set indicates over fitting; a low accuracy on both sets indicates under fitting.
-* Which parameters were tuned? How were they adjusted and why?
-* What are some of the important design choices and why were they chosen? For example, why might a convolution layer work well with this problem? How might a dropout layer help with creating a successful model?
+* training set accuracy of 1
+* validation set accuracy of 0.944
+* test set accuracy of 0.914
 
 If a well known architecture was chosen:
-* What architecture was chosen?
-* Why did you believe it would be relevant to the traffic sign application?
-* How does the final model's accuracy on the training, validation and test set provide evidence that the model is working well?
+* Lenet architecture as used during udacity teaching was deployed.
+* Lenet architecture's main purpose was originaly recognition of hand written letters.
+I think it suits well for recognition of traffic signs.
+* The final results show that training accuracy (1), validation acurracy (0.944) and test accuracy (0.914) are close to each other and therefore I would assume that the model is working proper for sign recognition.
 
 
 ###Test a Model on New Images
@@ -163,38 +157,76 @@ Here are five German traffic signs that I found on the web:
 ![alt text][image4] ![alt text][image5] ![alt text][image6]
 ![alt text][image7] ![alt text][image8]
 
-The first image might be difficult to classify because ...
+During my experiments on the test images I observed that the first 4 images were always recognized correctly. Tha last image was not always predicted correctly. I think this is due to angle of the image was taken.
 
 ####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
-The code for making predictions on my final model is located in the tenth cell of the Ipython notebook.
+The code for making predictions on my final model is located in the thirteenth cell of the Ipython notebook.
 
 Here are the results of the prediction:
 
 | Image			        |     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
-| Stop Sign      		| Stop sign   									|
-| U-turn     			| U-turn 										|
-| Yield					| Yield											|
-| 100 km/h	      		| Bumpy Road					 				|
-| Slippery Road			| Slippery Road      							|
+| Right-of-way at the next intersection | Right-of-way at the next intersection   									|
+| Speed limit (30km/h)     			| Speed limit (30km/h) 										|
+| Priority road				| Priority road											|
+| Turn left ahead	      		| Turn left ahead					 				|
+| Road work			| Road work      							|
 
 
-The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%. This compares favorably to the accuracy on the test set of ...
+The model was able to correctly guess 5 of the 5 traffic signs, which gives an accuracy of 100%. From time to time I observed the accuracy of 80% in this case only the first four images were predicted properly. This compares favorably to the accuracy on the test set of 0.914.
 
 ####3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction and identify where in your code softmax probabilities were outputted. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
+The code for making predictions on my final model is located in the 16th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a stop sign (probability of 0.6), and the image does contain a stop sign. The top five soft max probabilities were
+For the first image, the model is relatively sure that this is a "Right-of-way at the next intersection" (probability of 1, actually I would expect the probabilities to sum up to 1 in total, but already the first probability equals to 1...?), and the image does contain a "Right-of-way at the next intersection". The top five soft max probabilities were:
 
 | Probability         	|     Prediction	        					|
 |:---------------------:|:---------------------------------------------:|
-| .60         			| Stop sign   									|
-| .20     				| U-turn 										|
-| .05					| Yield											|
-| .04	      			| Bumpy Road					 				|
-| .01				    | Slippery Road      							|
+| 1         			| Right-of-way at the next intersection   									|
+| 9.85556080e-16     				| Double curve 										|
+| 3.63415469e-19					| Beware of ice/snow											|
+| 4.85972404e-31	      			| Speed limit (80km/h)					 				|
+| 2.33963319e-31				    | Traffic signals      							|
 
 
-For the second image ...
+For the second image "Speed limit (30km/h)":
+
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 1         			| Speed limit (30km/h)   									|
+| 8.91795915e-10     				| Speed limit (50km/h) 										|
+| 4.15478307e-13					| Speed limit (80km/h)											|
+| 2.41675864e-15	      			| Speed limit (60km/h)					 				|
+| 5.72162316e-20				    | Stop      							|
+
+For the third image "Priority road":
+
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 1         			| Priority road   									|
+| 6.50071143e-12     				| Roundabout mandatory 										|
+| 3.24874979e-19					| Children crossing											|
+| 2.97306600e-19	      			| No passing					 				|
+| 5.54823189e-20				    | Turn right ahead      							|
+
+For the fourth image "Turn left ahead":
+
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 1         			| Turn left ahead   									|
+| 1.36934507e-12     				| End of no passing 										|
+| 8.06996505e-13					| Beware of ice/snow											|
+| 5.52545917e-14	      	| End of all speed and passing limits					 				|
+| 4.61378423e-16				    | Speed limit (120km/h)      							|
+
+For the fourth image "Road work":
+
+| Probability         	|     Prediction	        					|
+|:---------------------:|:---------------------------------------------:|
+| 0.99         			| Road work   									|
+| 0.011     				| Bicycles crossing 										|
+| 1.02209094e-12					| Dangerous curve to the right											|
+| 7.40086398e-15	      	| Slippery road					 				|
+| 3.78407438e-15				    | Road narrows on the right      							|

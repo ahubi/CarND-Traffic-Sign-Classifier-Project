@@ -189,7 +189,7 @@ For the first image, the model is relatively sure that this is a "Right-of-way a
 | 3.63415469e-19					| Beware of ice/snow											|
 | 4.85972404e-31	      			| Speed limit (80km/h)					 				|
 | 2.33963319e-31				    | Traffic signals      							|
-
+The prediction can be considered as very solid.
 
 For the second image "Speed limit (30km/h)":
 
@@ -200,6 +200,7 @@ For the second image "Speed limit (30km/h)":
 | 4.15478307e-13					| Speed limit (80km/h)											|
 | 2.41675864e-15	      			| Speed limit (60km/h)					 				|
 | 5.72162316e-20				    | Stop      							|
+The prediction can be considered as very solid.
 
 For the third image "Priority road":
 
@@ -210,6 +211,7 @@ For the third image "Priority road":
 | 3.24874979e-19					| Children crossing											|
 | 2.97306600e-19	      			| No passing					 				|
 | 5.54823189e-20				    | Turn right ahead      							|
+The prediction can be considered as very solid.
 
 For the fourth image "Turn left ahead":
 
@@ -220,6 +222,7 @@ For the fourth image "Turn left ahead":
 | 8.06996505e-13					| Beware of ice/snow											|
 | 5.52545917e-14	      	| End of all speed and passing limits					 				|
 | 4.61378423e-16				    | Speed limit (120km/h)      							|
+The prediction can be considered as very solid.
 
 For the fourth image "Road work":
 
@@ -230,3 +233,4 @@ For the fourth image "Road work":
 | 1.02209094e-12					| Dangerous curve to the right											|
 | 7.40086398e-15	      	| Slippery road					 				|
 | 3.78407438e-15				    | Road narrows on the right      							|
+At the last traffic sign it can be seen that the model isn't that solid on predicting this image. The first softmax output < 1. This correlates with my observations for this image. In some cases the image couldn't be recognized properly.

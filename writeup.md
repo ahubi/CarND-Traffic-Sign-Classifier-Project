@@ -13,14 +13,14 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./plot.jpg "Visualization"
-[image2]: ./gntest.jpg "Grayed and normalized"
-[image21]: ./gntrain.jpg "Grayed and normalized"
-[image22]: ./gnvalid.jpg "Grayed and normalized"
-[image3]: ./randomoriginal.jpg "Random Noise"
-[image31]: ./train_original.jpg "Train original image"
-[image32]: ./valid_original.jpg "Validation original image"
-[image33]: ./test_original.jpg "Test original image"
+[image1]: ./output_images/plot.jpg "Visualization"
+[image2]: ./output_images/gntest.jpg "Grayed and normalized"
+[image21]: ./output_images/gntrain.jpg "Grayed and normalized"
+[image22]: ./output_images/gnvalid.jpg "Grayed and normalized"
+[image3]: ./output_images/randomoriginal.jpg "Random Noise"
+[image31]: ./output_images/train_original.jpg "Train original image"
+[image32]: ./output_images/valid_original.jpg "Validation original image"
+[image33]: ./output_images/test_original.jpg "Test original image"
 [image4]: ./testimages/1.png "Traffic Sign 1"
 [image5]: ./testimages/2.png "Traffic Sign 2"
 [image6]: ./testimages/3.png "Traffic Sign 3"
